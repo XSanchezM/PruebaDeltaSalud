@@ -22,3 +22,21 @@ public class Category {
     @Column(name = "name", nullable = false, length = 50, unique = true)
     private String name;
 }
+
+//getters
+public Long getId() {
+    return id;
+}
+
+public String getName() {
+    return name;
+}
+
+//Setters
+public void setId(Long id) {
+    this.id = id;
+}
+
+public void setName(String name) {
+    this.name = name
+}

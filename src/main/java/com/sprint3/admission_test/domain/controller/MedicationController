@@ -1,0 +1,44 @@
+package com.sprint3.admission_test.domain.controller;
+
+
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
+import java.math.BigDecimal;
+import java.time.LocalDate;
+
+@RestController
+@RestMapping("/medications")
+@RequiredArgsConstructor
+public class MedicationController{
+
+    private final MedicationService medicationService;
+
+    @PostMapping
+    private void createMedication(@RequestBody Medication medication) {
+
+        medicationService.createMedication(medication);
+
+    }
+
+    @GetMapping
+    public List<Medication> listMedications() {
+        return medicationService.listAllMedications();
+    }
+
+
+    @GetMapping (path = "/{id}")
+    public medication medicationById(@PathVariable Long id) {
+        boolean ok = this.medicationService.getMedicationById(id);
+        if (ok){
+            return "Medicamento id: " + id;
+        }else{
+            return "No existe medicamento con id: " + id;
+        }
+    }
+}
+
+
+
+

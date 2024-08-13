@@ -8,4 +8,7 @@ public interface IMedicationRepository {
 
     Optional<Medication> findById(Long id);
 
+    Optional<Medication> createMedication(String name, String description, BigDecimal price, LocalDate expirationDate);
 }
+
+

@@ -22,4 +22,9 @@ public class MedicationController {
         return ResponseEntity.status(HttpStatus.OK).body(medicationUseCase.getMedicationById(id));
     }
 
+    @PostMapping()
+    public ResponseEntity<Medication> createMedication(@RequestBody Medication medication){
+        return ResponseEntity.status(HttpStatus.OK).body(medicationUseCase.createMedication(Medication));
+    }
+
 }
