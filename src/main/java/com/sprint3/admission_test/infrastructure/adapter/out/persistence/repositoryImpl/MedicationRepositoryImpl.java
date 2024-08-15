@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 @Repository
-public class MedicationRepositoryImpl implements IMedicationRepository {
+public abstract class MedicationRepositoryImpl implements IMedicationRepository {
 
     @Autowired
     private MedicationJpaRepository medicationJpaRepository;
@@ -18,4 +18,5 @@ public class MedicationRepositoryImpl implements IMedicationRepository {
     public Optional<Medication> findById(Long id) {
         return medicationJpaRepository.findById(id);
     }
+
 }
